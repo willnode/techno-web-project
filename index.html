@@ -13,35 +13,25 @@
 <body>
 	<div id="app">
 		<ul class="menu-atas">
-			<li>
-				<button class="dropbtn active">Beranda</button>
-			</li>
-			<li>
-				<button class="dropbtn">Profil</button>
-			</li>
-			<div class="dropdown">
-				<button class="dropbtn">kategori</button>
-				<div class="dropdown-content">
-				  <a href="#">Kerajinan</a>
-				  <a href="#">Kuliner</a>
-				  <a href="#">Budaya</a>
-				</div>
-			  </div> 
-				<a href="#">Galeri</a>
-			</li>
-			<li>
-				<a href="#">Tentang</a>
-			</li>
-		</ul>
-		<h1 class="judul-depan">{{title}}</h1>
-		<ul class="tombol-depan">
-			<li v-for="i in kategori">
-				<div>
-					<img :src="i.gambar">
-					<p>{{i.judul}}</p>
+			<li v-for="(m, i) in menu">
+				<img :class="{ 'menu-icon':true, 'active':lamanAktif==i }" :src="m.icon"></img>
+				<a :class="{ 'menu-item':true, 'active':lamanAktif==i }" href="#" @click="pergiKeLaman(i)">{{m.judul}}</a>
+				<div v-if="m.submenu" class="menu-content">
+					<a v-for="(n, j) in m.submenu" href="#" @click="pergiKeSubLaman(i, j)">{{n.judul}}</a>
 				</div>
 			</li>
 		</ul>
+		<div v-if="lamanAktif==0">
+			<h1 class="judul-depan">{{title}}</h1>
+			<ul class="tombol-depan">
+				<li v-for="i in kategori">
+					<div @click="pergiKeSubLaman(2, i)">
+						<img :src="i.gambar">
+						<p>{{i.judul}}</p>
+					</div>
+				</li>
+			</ul>
+		</div>
 	</div>
 	<script src="js/vue.js"></script>
 	<script src="js/main.js"></script>
