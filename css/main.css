@@ -6,14 +6,14 @@
 
 body {
 	height: 100%;
-	background: #f0f0f0;
+	background: #ffffff;
 	margin-top: 10px;
 }
 
 .judul-depan {
 	margin-top: 100px;
 	text-align: center;
-	color: #ed786a;
+	color: #f15c4c;
     text-shadow: 0.05em 0.075em 0 rgba(0, 0, 0, 0.1);
     font-size: 3em;
     letter-spacing: 5px;
@@ -39,49 +39,61 @@ ul {
 	list-style: none;
 }
 
-.dropbtn {
-    background-color: rgb(255, 245, 245);
-    color: black;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
+/* Menu Atas */
+
+
+ul.menu-atas  {
+    padding: 0 20%;
+	display: flex;
 }
-
-.dropbtn.active {
-	background-color: rgb(255, 37, 37);
-	color: white;
-
-
+ul.menu-atas > li {
+    list-style: none;
+    padding: 10px 20px;
 }
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
+ul.menu-atas > li > a {
     text-decoration: none;
-    display: block;
+	text-transform: uppercase;
+	font-weight: bold;
+    font-size: 1.2em;
+    color: #9c9494;
+    position: relative;
+}
+ul.menu-atas > li > a:before {
+    content: "";
+    width: 0px;
+    height: 3px;
+    background: #00bcd4;
+    position: absolute;
+    top: 120%;
+    left: 0;
+    mix-blend-mode: multiply;
+
 }
 
-.dropdown-content a:hover {background-color: #f1f1f1}
+ul.menu-atas > li > a:after {
+    content: "";
+    width: 0px;
+    height: 3px;
+    background: rgb(238, 34, 61);
+    position: absolute;
+    top: 120%;
+    right: 0;
+    mix-blend-mode: multiply;
 
-.dropdown:hover .dropdown-content {
-    display: block;
 }
 
-.dropdown:hover .dropbtn {
-    background-color:#ff5252;
+ul.menu-atas > li:hover a:before {
+    width: 50%;
+    transform: translateX(100%);
+    transition: all 1s;
+}
+
+ul.menu-atas > li:hover a:after {
+    width: 50%;
+    transform: translateX(-100%);
+    transition: all 1s;
+}
+
+.menu-content, .menu-icon {
+	display: none;
 }
