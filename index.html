@@ -1,25 +1,50 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Page Title</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="css/font-awesome.min.css" />
 </head>
+
 <body>
 	<div id="app">
 		<ul class="menu-atas">
-			<li v-for="m in menu">
-				<a>{{m}}</a>
+			<li>
+				<button class="dropbtn active">Beranda</button>
+			</li>
+			<li>
+				<button class="dropbtn">Profil</button>
+			</li>
+			<div class="dropdown">
+				<button class="dropbtn">kategori</button>
+				<div class="dropdown-content">
+				  <a href="#">Kerajinan</a>
+				  <a href="#">Kuliner</a>
+				  <a href="#">Budaya</a>
+				</div>
+			  </div> 
+				<a href="#">Galeri</a>
+			</li>
+			<li>
+				<a href="#">Tentang</a>
 			</li>
 		</ul>
 		<h1 class="judul-depan">{{title}}</h1>
 		<ul class="tombol-depan">
-			<li v-for="i in kategori">{{i}}</li>
+			<li v-for="i in kategori">
+				<div>
+					<img :src="i.gambar">
+					<p>{{i.judul}}</p>
+				</div>
+			</li>
 		</ul>
 	</div>
 	<script src="js/vue.js"></script>
 	<script src="js/main.js"></script>
 </body>
+
 </html>
