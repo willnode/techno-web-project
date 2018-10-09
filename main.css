@@ -8,18 +8,24 @@ body {
 	margin-top: 100px;
 }
 
-.welcome {
+.judul-depan {
 	text-align: center;
 	color: #ed786a;
     text-shadow: 0.05em 0.075em 0 rgba(0, 0, 0, 0.1);
     font-size: 3em;
-    letter-spacing: 13px;
+    letter-spacing: 5px;
 }
 
-.front-buttons {
-
+ul {
+	margin: 0;
+}
+.tombol-depan {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
 }
 
-.front-buttons > li {
+.tombol-depan > li {
+	list-style: none;
 
 }
