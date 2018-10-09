@@ -19,13 +19,19 @@ body {
 ul {
 	margin: 0;
 }
+
 .tombol-depan {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
 }
 
-.tombol-depan > li {
-	list-style: none;
+.menu-atas {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
 
+.tombol-depan > li, .menu-atas > li {
+	list-style: none;
 }

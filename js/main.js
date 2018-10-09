@@ -1,6 +1,7 @@
 var data = {
 	title: 'Loading...',
 	kategori: [],
+	menu: ["Beranda", "Profil", "Kategori", "Galeri", "Tentang"]
 }
 
 var app = new Vue({

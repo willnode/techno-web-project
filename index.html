@@ -5,10 +5,15 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Page Title</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
 </head>
 <body>
 	<div id="app">
+		<ul class="menu-atas">
+			<li v-for="m in menu">
+				<a>{{m}}</a>
+			</li>
+		</ul>
 		<h1 class="judul-depan">{{title}}</h1>
 		<ul class="tombol-depan">
 			<li v-for="i in kategori">{{i}}</li>
