@@ -1,0 +1,25 @@
+#app {
+	font-family:'Source Sans Pro','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+	height: 100%;
+	background: #f0f0f0;
+	margin-top: 100px;
+}
+
+.welcome {
+	text-align: center;
+	color: #ed786a;
+    text-shadow: 0.05em 0.075em 0 rgba(0, 0, 0, 0.1);
+    font-size: 3em;
+    letter-spacing: 13px;
+}
+
+.front-buttons {
+
+}
+
+.front-buttons > li {
+
+}
