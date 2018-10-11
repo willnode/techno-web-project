@@ -97,7 +97,7 @@ ul.menu-atas > li:hover a:after {
 }
 
 .menu-content {
-	display: none;
+	/* display: none; */
 }
 
 .menu-icon {
@@ -111,5 +111,5 @@ footer {
 ul.tombol-depan p {
     text-align: center;
     font-size: 20px
-    
+
 }
