@@ -28,6 +28,7 @@ ul {
 .tombol-depan {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-around;
 }
 
@@ -36,7 +37,7 @@ ul {
     flex-direction: row;
     justify-content: space-around;
     padding: 20px;
-    /* background-image: url() */
+    background-image: url('../images/header.jpg');
 }
 
 .tombol-depan>li,
@@ -60,7 +61,7 @@ ul.menu-atas>li>a {
     text-transform: uppercase;
     font-weight: bold;
     font-size: 1.2em;
-    color: #9c9494;
+    color: #090000;
     position: relative;
 }
 
@@ -68,22 +69,20 @@ ul.menu-atas>li>a:before {
     content: "";
     width: 0px;
     height: 3px;
-    background: #00bcd4;
+    background: #05f571;
     position: absolute;
     top: 120%;
     left: 0;
-    mix-blend-mode: multiply;
 }
 
 ul.menu-atas>li>a:after {
     content: "";
     width: 0px;
     height: 3px;
-    background: rgb(238, 34, 61);
+    background: #ff0000;
     position: absolute;
     top: 120%;
     right: 0;
-    mix-blend-mode: multiply;
 }
 
 ul.menu-atas>li:hover a:before {
@@ -99,7 +98,7 @@ ul.menu-atas>li:hover a:after {
 }
 
 .menu-item.active {
-    color: black;
+    background-color: white;
 }
 
 .menu-content {
@@ -137,10 +136,15 @@ li:hover .menu-content {
 footer {
     text-align: center;
     display: block;
-    margin-top: 120px;
+    margin-top: 140px;
+    font-weight: bold;
+    font-size: 1em;
 }
 
 ul.tombol-depan p {
     text-align: center;
-    font-size: 20px
+    font-size: 20px;
+    color: #57a5e6;
+    font-weight: bold;
+    padding: 5px;
 }

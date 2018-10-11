@@ -12,66 +12,48 @@
 </head>
 
 <body>
-    <div id="app">
-        <ul class="menu-atas">
-            <li>
-                <img src="icon/beranda.png" class="menu-icon">
-                <a href="#" class="menu-item active">Beranda</a>
-                <!---->
-            </li>
-            <li>
-                <img src="icon/profil.png" class="menu-icon">
-                <a href="#" class="menu-item active">Profil</a>
-                <!---->
-            </li>
-            <li>
-                <img src="icon/kategori.png" class="menu-icon">
-                <a href="#" class="menu-item">Kategori</a>
-                <div class="menu-content">
-                    <a href="#">Kerajinan</a>
-                    <a href="#">Kuliner</a>
-                    <a href="#">Budaya</a>
-                </div>
-            </li>
-            <li>
-                <img src="icon/galeri.png" class="menu-icon">
-                <a href="#" class="menu-item">Galeri</a>
-                <!---->
-            </li>
-            <li>
-                <img src="icon/tentang.png" class="menu-icon">
-                <a href="#" class="menu-item">Tentang</a>
-                <!---->
-            </li>
-        </ul>
-        <div>
-            <h1 class="judul-depan">Sistem Informasi Perkonomian Bangkalan</h1>
-            <ul class="tombol-depan">
-                <li>
-                    <div>
-                        <img src="images/kerajinan.jpg">
-                        <p>Kerajinan</p>
-                    </div>
-                </li>
-                <li>
-                    <div>
-                        <img src="images/kuliner.jpg">
-                        <p>Kuliner</p>
-                    </div>
-                </li>
-                <li>
-                    <div>
-                        <img src="images/budaya.jpg">
-                        <p>Budaya</p>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <script src="js/main.js"></script>
-</div><footer class="footer">
+    <ul class="menu-atas">
+        <li>
+            <img src="icon/beranda.png" class="menu-icon">
+            <a href="." class="menu-item">Beranda</a>
+        </li>
+        <li>
+            <img src="icon/profil.png" class="menu-icon">
+            <a href="index.php?page=profil" class="menu-item">Profil</a>
+        </li>
+        <li>
+            <img src="icon/kategori.png" class="menu-icon">
+            <a href="#" class="menu-item">Kategori</a>
+            <div class="menu-content">
+                <a href="index.php?page=kerajinan">Kerajinan</a>
+                <a href="index.php?page=kuliner">Kuliner</a>
+                <a href="index.php?page=budaya">Budaya</a>
+            </div>
+        </li>
+        <li>
+            <img src="icon/galeri.png" class="menu-icon">
+            <a href="index.php?page=galeri" class="menu-item">Galeri</a>
+            <!---->
+        </li>
+        <li>
+            <img src="icon/tentang.png" class="menu-icon">
+            <a href="index.php?page=tentang" class="menu-item">Tentang</a>
+            <!---->
+        </li>
+    </ul>
+    <?php
+        if(isset($_GET['page']))
+        {
+            $page=$_GET['page'];
+            include "pages/" . $page . ".php";              
+        } else {
+            include "pages/beranda.php";
+        }
+    ?>
+    <footer class="footer">
     <p>Copyright © Smart Friends 2018. All Rights Reserved.</p>
     </footer>
+    <script src="js/main.js"></script>
 </body>
 
 </html>
