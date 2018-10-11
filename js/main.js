@@ -5,7 +5,7 @@ var data = {
 	lamanKategori: 0,
 	menu: [{
 		judul: "Beranda",
-		icon: "glyphicon-cloud",
+		icon: "icon/beranda.png",
 	}, {
 		judul: "Profil",
 		icon: "icon/profil.png",
