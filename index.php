@@ -15,13 +15,13 @@
     <div id="app">
         <ul class="menu-atas">
             <li>
-                <img src="icon/beranda.png" class="menu-icon active">
+                <img src="icon/beranda.png" class="menu-icon">
                 <a href="#" class="menu-item active">Beranda</a>
                 <!---->
             </li>
             <li>
                 <img src="icon/profil.png" class="menu-icon">
-                <a href="#" class="menu-item">Profil</a>
+                <a href="#" class="menu-item active">Profil</a>
                 <!---->
             </li>
             <li>
