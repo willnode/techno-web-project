@@ -94,6 +94,6 @@ ul.menu-atas > li:hover a:after {
     transition: all 1s;
 }
 
-.menu-content, .menu-icon {
+.menu-content {
 	display: none;
 }
