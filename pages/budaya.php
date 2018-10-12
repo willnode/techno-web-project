@@ -1,4 +1,4 @@
 <?php
-    $namasektor = "Kerajinan";
+    $namasektor = "Budaya";
     include "pages/sektor.php";
 ?>
