@@ -2,6 +2,7 @@
 <div class="beranda">
     <h1 class="judul-depan">Sistem Informasi Perkonomian Bangkalan</h1>
     <ul class="tombol-depan">
+
     <?php
 
         class LamanBeranda {
@@ -9,6 +10,7 @@
             public $judul;
             public $gambar;
             public $artikel;
+            public $link;
 
             function __construct($id, $judul, $gambar, $artikel, $link) {
                 $this->id = $id;
@@ -20,23 +22,29 @@
         }
 
         $daftar = array(
-            new LamanBeranda(0, "Kerajinan", "images/kerajinan.jpg", "Lorem Ipsum", "index.php?page=kerajinan"),
-            new LamanBeranda(0, "Kuliner", "images/kuliner.jpg", "Lorem Ipsum", "index.php?page=kuliner"),
-            new LamanBeranda(0, "Budaya", "images/budaya.jpg", "Lorem Ipsum", "index.php?page=budaya"),
+            new LamanBeranda(0, "Kerajinan", "kerajinan.jpg", "Lorem Ipsum", "index.php?page=kerajinan"),
+            new LamanBeranda(0, "Kuliner", "kuliner.jpg", "Lorem Ipsum", "index.php?page=kuliner"),
+            new LamanBeranda(0, "Budaya", "budaya.jpg", "Lorem Ipsum", "index.php?page=budaya"),
         );
 
-        foreach ($daftar as $item) {
-            echo "
+        foreach ($daftar as $item) { ?>
             <li>
                 <div>
-                    <a href='$item->link'>
-                    <img src='$item->gambar'>
-                    <h3>$item->judul</h3>
-                    <p>$item->artikel</p>
+                    <a href='<?= $item->link?>'>
+                        <div class='gambar' style='background-image:url("images/<?=$item->gambar?>")'>
+                            <div class='space'></div>
+                            <div class='inner'>
+                                <h3>
+                                    <?= $item->judul?>
+                                </h3>
+                                <div class='desc'>
+                                    <p><?= $item->artikel?></p>
+                                </div>
+                            </div>
+                        </div>
                     </a>
                 </div>
-            </li>";
-        }
-        ?>
+            </li>
+        <?php }  ?>
     </ul>
 </div>

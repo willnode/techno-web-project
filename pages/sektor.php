@@ -42,8 +42,8 @@ foreach ($daftar as $sektor) {
     $sektorclass = $issame ? " active" : "";
     $page = $_GET['page'];
     echo "
-            <li class='submenu$sektorclass'><a href='index.php?page=$page&id=$sektor->id'>$sektor->judul</a></li>
-            ";
+        <li class='submenu$sektorclass'><a href='index.php?page=$page&id=$sektor->id'>$sektor->judul</a></li>
+        ";
 }
 
 ?>
