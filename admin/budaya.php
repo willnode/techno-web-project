@@ -8,6 +8,7 @@
         $record=mysqli_fetch_array($rec);
         $judul=$record['judul'];
         $artikel=$record['artikel'];
+        $lokasi=$record['lokasi'];
         $edit_state = true;
     } else {
         // Buat baru
@@ -18,6 +19,15 @@
         WHERE t2.id IS NULL";
         $id = mysqli_fetch_array(mysqli_query($db, $query))[0];
     }
+
+    function limit_text($text, $limit) {
+        if (str_word_count($text, 0) > $limit) {
+            $words = str_word_count($text, 2);
+            $pos = array_keys($words);
+            $text = substr($text, 0, $pos[$limit]) . '...';
+        }
+        return $text;
+      }
 ?>
 <!DOCTYPE html>
 <html>
@@ -26,7 +36,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>CRUD</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="../a.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/admin.css" />
     <script src="main.js"></script>
 </head>
 <body>
@@ -38,6 +50,7 @@
                 <th>JUDUL</th>
 		        <th>GAMBAR</th>
 		        <th>ARTIKEL</th>
+		        <th>LOKASI</th>
 
                 <th colspan="2">AKSI</th>
             </tr>
@@ -47,12 +60,13 @@
             <tr>
                 <td><?= $row['judul']; ?></td>
                 <td><?= $row['gambar']; ?></td>
-                <td><?= $row['artikel']; ?></td>
+                <td><?= limit_text($row['artikel'], 3); ?></td>
+                <td><?= $row['lokasi']; ?></td>
                 <td>
-                    <a href="budaya.php?edit=<?= $row['id']; ?>">Edit</a>
+                    <a href="budaya.php?edit=<?= $row['id']; ?>" class="btn btn-primary">Edit</a>
                 </td>
                 <td>
-                    <a href="budaya-proses.php?del=<?= $row['id']; ?>">Hapus</a>
+                    <a href="budaya-proses.php?del=<?= $row['id']; ?>" class="btn btn-danger">Hapus</a>
                 </td>
             </tr>
         <?php } ?>
@@ -72,7 +86,11 @@
         </div>
 		<div class="input-group">
             <label>Artikel</label>
-            <input type="text" name="artikel" placeholder="Masukkan Artikel" value="<?= $artikel; ?>">
+            <textarea name="artikel" placeholder="Masukkan Artikel"><?= $artikel; ?></textarea>
+        </div>
+        <div class="input-group">
+            <label>Lokasi</label>
+            <input type="text" name="lokasi" placeholder="Masukkan Lokasi" value="<?= $lokasi; ?>">
         </div>
         <div class="input-group">
         <?php if($edit_state == false): ?>

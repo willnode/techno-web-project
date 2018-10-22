@@ -2,60 +2,36 @@
 <?php
  $menuaktif=2;
  include "pages/menu.php";
+ $db = mysqli_connect('localhost','root','','informasi');
  ?>
 <div class="sektor <?php echo $namasektor ?>">
     <div class="list">
         <ul>
+
+<?php
+    $judul = mysqli_query($db,"SELECT * FROM $namatabel;");
+    $sektorterpilih = null;
+    while($juduls = mysqli_fetch_array($judul)){
+        $aktif = $juduls['id'] == $_GET['id'];
+        $sektorclass = $aktif ? " active" : "";
+        if ($aktif) {
+            $sektorterpilih = $juduls;
+        }
+        ?>
+
+        <li class='submenu<?=$sektorclass?>'><a href='index.php?page=<?=$_GET['page']?>&id=<?=$juduls['id']?>'><?=$juduls['judul']?></a></li>
         <?php
-
-class SektorItem
-{
-    public $id;
-    public $gambar;
-    public $artikel;
-    public $judul;
-    public $lokasi;
-
-    function __construct($id, $judul, $gambar, $artikel, $lokasi)
-    {
-        $this->id = $id;
-        $this->gambar = $gambar;
-        $this->artikel = $artikel;
-        $this->judul = $judul;
-        $this->lokasi = $lokasi;
     }
-}
-
-$daftar = array(new SektorItem(0, "Anakonda", "kerajinan.jpg", "A", "Singa Arabia Bangkalan"),
-    new SektorItem(1, "B", "a.jpg", "B", "Oriez Cafe Bangkalan"),
-    new SektorItem(2, "C", "b.jpg", "C", "Universitas Trunojoyo Madura"));
-
-$selectedid = isset($_GET['id']) ? $_GET['id'] : -1;
-$sektorterpilih = null;
-
-foreach ($daftar as $sektor) {
-    $issame = $sektor->id == $selectedid;
-    if ($issame) {
-        $sektorterpilih = $sektor;
-    }
-
-    $sektorclass = $issame ? " active" : "";
-    $page = $_GET['page'];
-    echo "
-        <li class='submenu$sektorclass'><a href='index.php?page=$page&id=$sektor->id'>$sektor->judul</a></li>
-        ";
-}
-
 ?>
         </ul>
     </div>
     <div class="konten-submenu">
         <?php if ($sektorterpilih !== null) {?>
-            <div class='gambar' style='background-image:url("images/<?=$sektorterpilih->gambar?>")'>
+            <div class='gambar' style='background-image:url("images/<?=$sektorterpilih['gambar']?>")'>
             </div>
-            <h2><?=$sektorterpilih->judul?></h2>
-            <p class='article'><?=$sektorterpilih->artikel?></p>
-            <p class='lokasi'<?=$sektorterpilih->lokasi?>></p>
+            <h2><?=$sektorterpilih['judul']?></h2>
+            <p class='article'><?=$sektorterpilih['artikel']?></p>
+            <p class='lokasi'><?=$sektorterpilih['lokasi']?></p>
         <?php }?>
     </div>
 </div>

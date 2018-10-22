@@ -5,16 +5,19 @@ $db = mysqli_connect('localhost','root','','informasi');
 if (isset($_POST['save'])) {
     $id=$_POST['id'];
     $judul=$_POST['judul'];
+    $lokasi=$_POST['lokasi'];
     $gambar=$_FILES['gambar'];
     $gambar_file = $gambar['name'];
-    $gambar_path = "images/".$gambar_file;
+    $gambar_path = "../images/".$gambar_file;
     $gambar_tmp = $gambar['tmp_name'];
     $artikel=$_POST['artikel'];
 
     // Upload gambar
     if(move_uploaded_file($gambar_tmp, $gambar_path)) {
-        $query = "INSERT INTO budaya (id, judul, gambar, artikel) VALUES ('$id', '$judul', '$gambar_file', '$artikel')";
-        mysqli_query($db, $query) or die($koneksi->error);;
+        $query = "INSERT INTO budaya (id, judul, gambar, artikel, lokasi) VALUES ('$id', '$judul', '$gambar_file', '$artikel', '$lokasi')";
+        mysqli_query($db, $query) or die($koneksi->error);
+    } else {
+        die("Error");
     }
 }
 
