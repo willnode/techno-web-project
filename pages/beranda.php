@@ -1,4 +1,4 @@
-<?php include "pages/menu.php" ?>
+<?php $menuaktif=0; include "pages/menu.php" ?>
 <div class="beranda">
     <h1 class="judul-depan">Sistem Informasi Perkonomian Bangkalan</h1>
     <ul class="tombol-depan">
@@ -22,7 +22,7 @@
         }
 
         $daftar = array(
-            new LamanBeranda(0, "Kerajinan", "kerajinan.jpg", "Lorem Ipsum", "index.php?page=kerajinan"),
+            new LamanBeranda(0, "Kerajinan", "kerajinan.jpg", "Kerajinan didalam Bangkalan beragam.", "index.php?page=kerajinan"),
             new LamanBeranda(0, "Kuliner", "kuliner.jpg", "Lorem Ipsum", "index.php?page=kuliner"),
             new LamanBeranda(0, "Budaya", "budaya.jpg", "Lorem Ipsum", "index.php?page=budaya"),
         );

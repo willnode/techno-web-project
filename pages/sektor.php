@@ -1,7 +1,7 @@
 
 <?php
-$menutitle = $namasektor;
- include "pages/menu.php"
+ $menuaktif=2;
+ include "pages/menu.php";
  ?>
 <div class="sektor <?php echo $namasektor ?>">
     <div class="list">
