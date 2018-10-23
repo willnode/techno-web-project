@@ -4,11 +4,12 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <title>Aplikasi Sistem Informasi Perkonomian Bangkalan</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css">
+    <link rel="shortcut icon" type="image/png" href="images/Bangkalan.png"/>
 </head>
 
 <body>

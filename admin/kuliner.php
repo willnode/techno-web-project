@@ -1,6 +1,6 @@
 <?php
 
-$tabel = "budaya";
+$tabel = "kuliner";
 include "./sektor.php";
 
 ?>

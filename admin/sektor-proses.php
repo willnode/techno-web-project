@@ -1,6 +1,7 @@
 <?php
 
 $db = mysqli_connect('localhost','root','','informasi');
+$tabel = $_POST['tabel'];
 
 if (isset($_POST['save'])) {
     $id=$_POST['id'];
@@ -14,7 +15,7 @@ if (isset($_POST['save'])) {
 
     // Upload gambar
     if(move_uploaded_file($gambar_tmp, $gambar_path)) {
-        $query = "INSERT INTO budaya (id, judul, gambar, artikel, lokasi) VALUES ('$id', '$judul', '$gambar_file', '$artikel', '$lokasi')";
+        $query = "INSERT INTO $tabel (id, judul, gambar, artikel, lokasi) VALUES ('$id', '$judul', '$gambar_file', '$artikel', '$lokasi')";
         mysqli_query($db, $query) or die($koneksi->error);
     } else {
         die("Error");
@@ -27,16 +28,16 @@ if (isset($_POST['update'])) {
     $judul=$_POST['judul'];
     $artikel=$_POST['artikel'];
 
-    mysqli_query($db, "UPDATE budaya SET judul='$judul', gambar='$gambar', artikel='$artikel' WHERE id=$id");
+    mysqli_query($db, "UPDATE $tabel SET judul='$judul', gambar='$gambar', artikel='$artikel' WHERE id=$id");
 
 }
 
 if (isset($_GET['del'])) {
     $id=$_GET['del'];
-    mysqli_query($db, "DELETE FROM budaya WHERE id=$id");
+    mysqli_query($db, "DELETE FROM $tabel WHERE id=$id");
 }
 
-header('Location: budaya.php');
+header("Location: $tabel.php");
 
 
 ?>

@@ -38,6 +38,7 @@ li {
     flex-wrap: wrap;
     justify-content: space-around;
 }
+
 /* Beranda */
 
 .beranda h3 {
@@ -97,13 +98,21 @@ li {
 }
 
 .profil .gambar {
-    flex-grow: 1;
-    background-size: cover;
+    background-size: contain;
     background-position: center;
+    background-repeat: no-repeat;
+
+    min-width: 25vw;
+
 }
 
+.profil p {
+    text-align: justify;
+}
+
+
 .profil .inner {
-    min-width: 25vw;
+    flex-grow: 1;
     margin: 0px 10px;
 }
 
@@ -248,7 +257,7 @@ li:hover .menu-content {
 footer {
     text-align: center;
     display: block;
-    margin-top: 140px;
+    margin-top: 110px;
     font-weight: bold;
     font-size: 1em;
 }
@@ -331,4 +340,23 @@ ul.tombol-depan p {
     height: 100%;
     background-size: cover;
     background-position: center;
+}
+
+.tentang {
+    width: 60%;
+    min-width: 800px;
+    margin: auto;
+    padding: 15px;
+}
+.tentang .head {
+    display: flex;
+}
+.tentang .logo {
+    width: 200px;
+    height: 200px;
+}
+.tentang .bio {
+    margin-top: 70px;
+    font-size: 16px;
+
 }

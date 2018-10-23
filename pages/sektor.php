@@ -4,7 +4,7 @@
  include "pages/menu.php";
  $db = mysqli_connect('localhost','root','','informasi');
  ?>
-<div class="sektor <?php echo $namasektor ?>">
+<div class="content sektor <?php echo $namasektor ?>">
     <div class="list">
         <ul>
 

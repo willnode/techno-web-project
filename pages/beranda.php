@@ -1,5 +1,5 @@
 <?php $menuaktif=0; include "pages/menu.php" ?>
-<div class="beranda">
+<div class="content beranda">
     <h1 class="judul-depan">Sistem Informasi Perkonomian Bangkalan</h1>
     <ul class="tombol-depan">
 
