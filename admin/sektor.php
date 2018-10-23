@@ -21,6 +21,7 @@ $results = mysqli_query ($db, "SELECT * FROM $tabel");
         $judul=$record['judul'];
         $artikel=$record['artikel'];
         $lokasi=$record['lokasi'];
+        $gambar=$record['gambar'];
         $edit_state = true;
     } else {
         // Buat baru
@@ -40,71 +41,48 @@ $results = mysqli_query ($db, "SELECT * FROM $tabel");
         }
         return $text;
       }
+
+    function activ($test) {
+        global $id;
+        return $test == $id ? ' active' : '';
+    }
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>CRUD</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="../css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="../css/font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="../css/admin.css" />
-    <script src="main.js"></script>
-</head>
-<body>
+<div class="sektor">
 
 <?php if (isset($_SESSION['msg'])) ?>
-    <table>
-        <thead>
-            <tr>
-                <th>JUDUL</th>
-		        <th>GAMBAR</th>
-		        <th>ARTIKEL</th>
-		        <th>LOKASI</th>
 
-                <th colspan="2">AKSI</th>
-            </tr>
-        </thead>
-        <tbody>
+        <ul class="list">
         <?php while ($row = mysqli_fetch_array($results)) {?>
-            <tr>
-                <td><?= $row['judul']; ?></td>
-                <td><?= $row['gambar']; ?></td>
-                <td><?= limit_text($row['artikel'], 3); ?></td>
-                <td><?= $row['lokasi']; ?></td>
-                <td>
-                    <a href="<?=$tabel?>.php?edit=<?= $row['id']; ?>" class="btn btn-primary">Edit</a>
-                </td>
-                <td>
-                    <a href="sektor-proses.php?del=<?= $row['id']; ?>" class="btn btn-danger">Hapus</a>
-                </td>
-            </tr>
+            <li>
+                <a class="btn-edit<?=$row['id'] == $id ? ' active' : ''?>" href="index.php?page=<?=$tabel?>&amp;edit=<?= $row['id']; ?>" title="<?= limit_text($row['artikel'], 5); ?>"><?= $row['judul']; ?></a>
+                <a class="btn-del" href="sektor-proses.php?tabel=<?=$tabel?>&amp;del=<?= $row['id']; ?>" title="Hapus">❌</a>
+            </li>
         <?php } ?>
-        </tbody>
-    </table>
+            <li>
+                <a class="btn-edit<?=!$edit_state ? ' active' : ''?>" href="index.php?page=<?=$tabel?>" title="Tambah item baru...">➕ Tambah Baru</a>
+            </li>
+        </ul>
 
-    <form method="post" enctype="multipart/form-data" action="sektor-proses.php" >
+    <form class="form" method="post" enctype="multipart/form-data" action="sektor-proses.php" >
         <input type="text" name="id"  hidden value="<?= $id ?>">
         <input type="text" name="tabel" hidden value="<?= $tabel ?>">
 
 		<div class="input-group">
             <label>Judul</label>
-            <input type="text" name="judul" placeholder="Masukkan Judul" value="<?= $judul; ?>">
+            <input required type="text" name="judul" placeholder="Masukkan Judul" value="<?= $judul; ?>">
         </div>
         <div class="input-group">
-            <label>Gambar</label>
-            <input type="file" name="gambar" placeholder="Masukkan Gambar">
+            <label>Gambar <i><?= $gambar ? '('.$gambar.')' : '' ?></i></label>
+            <input required type="file" name="gambar" placeholder="Masukkan Gambar">
         </div>
 		<div class="input-group">
             <label>Artikel</label>
-            <textarea name="artikel" placeholder="Masukkan Artikel"><?= $artikel; ?></textarea>
+            <textarea required name="artikel" placeholder="Masukkan Artikel"><?= $artikel; ?></textarea>
         </div>
         <div class="input-group">
             <label>Lokasi</label>
-            <input type="text" name="lokasi" placeholder="Masukkan Lokasi" value="<?= $lokasi; ?>">
+            <input required type="text" name="lokasi" placeholder="Masukkan Lokasi" value="<?= $lokasi; ?>">
         </div>
         <div class="input-group">
         <?php if($edit_state == false): ?>
@@ -114,5 +92,4 @@ $results = mysqli_query ($db, "SELECT * FROM $tabel");
         <?php endif ?>
         </div>
     </form>
-</body>
-</html>
+</div>

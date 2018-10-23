@@ -37,7 +37,7 @@ if (isset($_GET['del'])) {
     mysqli_query($db, "DELETE FROM $tabel WHERE id=$id");
 }
 
-header("Location: $tabel.php");
+header("Location: index.php?page=$tabel");
 
 
 ?>

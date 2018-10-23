@@ -12,15 +12,12 @@ function activ($idx)
 ?>
 <ul class="menu-atas">
 	<li <?= activ(0) ?>>
-		<img src="icon/beranda.png" class="menu-icon">
 		<a href="." class="menu-item">Beranda</a>
 	</li>
 	<li <?= activ(1) ?>>
-		<img src="icon/profil.png" class="menu-icon">
 		<a href="index.php?page=profil" class="menu-item">Profil</a>
 	</li>
 	<li <?= activ(2) ?>>
-		<img src="icon/kategori.png" class="menu-icon">
 		<a href="#" class="menu-item"><?= isset($namasektor) ? $namasektor : "Kategori" ?></a>
 		<div class="menu-content">
 			<a href="index.php?page=kerajinan&amp;id=0">Kerajinan</a>
@@ -29,12 +26,10 @@ function activ($idx)
 		</div>
 	</li>
 	<li <?= activ(3) ?>>
-		<img src="icon/galeri.png" class="menu-icon">
 		<a href="index.php?page=galeri" class="menu-item">Galeri</a>
 		<!---->
 	</li>
 	<li <?= activ(4) ?>>
-		<img src="icon/tentang.png" class="menu-icon">
 		<a href="index.php?page=tentang" class="menu-item">Tentang</a>
 		<!---->
 	</li>

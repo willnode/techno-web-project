@@ -270,10 +270,11 @@ ul.tombol-depan p {
     padding: 5px;
 }
 
+
 /* Sektor */
 .sektor {
     display: flex;
-    margin: 5px 10px;
+    padding: 10px 10px;
 }
 
 .judul-sektor {
@@ -310,15 +311,46 @@ ul.tombol-depan p {
     background-color: whitesmoke;
 }
 
+.konten-submenu {
+    display: flex;
+}
+
 .konten-submenu .gambar {
-    height: 250px;
+    min-height: 250px;
     background-size: cover;
     background-position: center;
+    flex-grow: 1;
 }
+
+.konten-submenu .inner {
+    max-width: 50%;
+    min-width: 150px;
+    margin: 0px 10px;
+}
+
+
+.konten-submenu p {
+    text-align: justify;
+}
+
 
 .list .active {
     font-weight: bold;
     background-color: lightblue;
+}
+
+.lokasi a {
+    font-weight: bold;
+    padding: 10px;
+    border: #016296 solid 1px;
+    border-radius: 1px;
+    margin-top: 15px;
+    display: inline-block;
+}
+
+.lokasi a:hover {
+    text-decoration: none;
+    box-shadow: 0 0 7px #016296;
 }
 
 /* galeri */
@@ -326,7 +358,8 @@ ul.tombol-depan p {
 .galeri {
     display: flex;
     flex-wrap: wrap;
-    align-content: center;
+    justify-content: center;
+    padding: 10px 5px;
 }
 
 .galeri .item {
@@ -340,7 +373,56 @@ ul.tombol-depan p {
     height: 100%;
     background-size: cover;
     background-position: center;
+    display: block;
+    transition: all .5s;
 }
+
+.galeri .item {
+    overflow: hidden;
+}
+
+.galeri .item:hover .image {
+    -ms-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+.galeri a {
+    display: none;
+    font-size: 30px;
+    color: #ffffff !important;
+    font-family: sans-serif;
+    text-align: center;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 50px;
+    cursor: pointer;
+    /*text-decoration: none;*/
+}
+
+.galeri .image:before {
+    content: "";
+    display: none;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(52, 91, 94, 0.75);
+}
+
+.galeri .item:hover a, .galeri .item:hover .image:before {
+    display: block;
+}
+
+
+/* tentang */
 
 .tentang {
     width: 60%;
@@ -358,5 +440,21 @@ ul.tombol-depan p {
 .tentang .bio {
     margin-top: 70px;
     font-size: 16px;
+}
 
+/* animations */
+
+@keyframes slideBottomToUp {
+    0% {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+.content {
+    animation: 0.4s ease-out slideBottomToUp;
 }
